@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>PAC SNACK</title>
         <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
     </head>
     <body>
         <header>
@@ -19,13 +20,14 @@
             </nav>
         </header>
         <main>
-            <article>
-                <h1>Omelette</h1>
-                <img src="res/bac-omelette.png" alt="Omelette-picture">
-                <p>A simple dish for you to eat in the morning. It gives you exactly what you need for you to have a great start.</p>
-                <h2>30,-</h2>
-                <button></button>
-            </article>
+            <template id="dish">
+                <article>
+                    <h1>Omelette</h1>
+                    <img src="res/bac-omelette.png" alt="Omelette-picture">
+                    <p>A simple dish for you to eat in the morning. It gives you exactly what you need to have a great start.</p>
+                    <button>30,- kr</button>
+                </article>
+            </template>
         </main>
         <footer></footer>
     </body>
