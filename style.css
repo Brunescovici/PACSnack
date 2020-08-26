@@ -32,6 +32,7 @@ header nav {
 }
 
 ul {
+    list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -42,16 +43,13 @@ ul {
 main {
     grid-row: 2 / -2;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-around;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    row-gap: 30px;
+    justify-items: center;
 }
 
 /* article design */
-
-main>img {
-    display: block;
-    width: 100%;
-}
 
 /* working on footer */
 

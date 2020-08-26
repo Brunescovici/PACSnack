@@ -1,9 +1,7 @@
-const dishTemplate = document.querySelector('#dish').content;
 
-const dishClone = dishTemplate.cloneNode(true);
-
-dishClone.querySelector("h1").textContent = "Omelette";
-
-const dishParent = document.querySelector("main");
-
-dishParent.appendChild(dishClone);
+for(let i=0; i<5; i++) {
+    const dishTemplate = document.querySelector('#dish').content;
+    const dishClone = dishTemplate.cloneNode(true);
+    const dishParent = document.querySelector("main");
+    dishParent.appendChild(dishClone);
+}
