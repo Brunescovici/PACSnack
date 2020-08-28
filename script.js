@@ -1,7 +1,5 @@
+// fetch
 
-for(let i=0; i<5; i++) {
-    const dishTemplate = document.querySelector('#dish').content;
-    const dishClone = dishTemplate.cloneNode(true);
-    const dishParent = document.querySelector("main");
-    dishParent.appendChild(dishClone);
-}
+fetch("http://kea-alt-del.dk/t5/api/productlist")
+    .then(res => res.json())
+    .then(data => console.log(data));
