@@ -14,13 +14,14 @@ function addDish(dish) {
     const myTemplate = document.querySelector("#dish").content;
     const cloneDish = myTemplate.cloneNode(true);
     cloneDish.querySelector("#name").textContent = dish.name;
+    cloneDish.querySelector("#pic").src = base + "small/" + dish.image + "-sm.jpg";
+    cloneDish.querySelector("#price").textContent = "Price: " + dish.price + ",- kr";
+    cloneDish.querySelector("#shortDesc").textContent = dish.shortdescription;
     const parentDishStarter = document.querySelector("section#starter");
     const parentDishMain = document.querySelector("section#main");
     const parentDishDessert = document.querySelector("section#dessert");
     const parentDishDrinks = document.querySelector("section#drinks");
     const parentDishSideorders = document.querySelector("section#sideorders");
-    cloneDish.querySelector("#pic").src = base + "small/" + dish.image + "-sm.jpg";
-    cloneDish.querySelector("#price").textContent = "Price: " + dish.price + ",- kr";
     if(dish.category == "starter")
         parentDishStarter.appendChild(cloneDish);
     else if(dish.category == "main")
