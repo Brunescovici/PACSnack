@@ -22,10 +22,19 @@ function addDish(dish) {  // adds the dishes (dish)
     cloneDish.querySelector(".name").textContent = dish.name;
     cloneDish.querySelector(".pic").src = base + "small/" + dish.image + "-sm.jpg";
     cloneDish.querySelector(".price").textContent = dish.price + ",- kr";
-    if(dish.discount)
+    if(dish.soldout)
+    {
+        cloneDish.querySelector("#soldOutText").style.display = "block";
+        cloneDish.querySelector(".price").style.color = "rgba(0,0,0, 0.3)";
+        cloneDish.querySelector(".pic").style.filter = "grayscale(100%)";
+        cloneDish.querySelector(".buyBtn").style.backgroundColor = "gray";
+        cloneDish.querySelector(".buyBtn").style.color = "white";
+        cloneDish.querySelector(".buyBtn").style.cursor = "initial";
+    }
+    else if(dish.discount)
     {
         cloneDish.querySelector(".price").style.textDecoration = "line-through";
-        // cloneDish.querySelector(".price").style.fontSize = "18pt";
+        cloneDish.querySelector(".price").style.color = "rgba(0, 0, 0, 0.5)";
         cloneDish.querySelector(".newPrice").textContent = dish.price - (dish.price * dish.discount / 100) + ",- kr";
     }
     else {
@@ -47,8 +56,12 @@ function addDish(dish) {  // adds the dishes (dish)
         parentDishDrinks.appendChild(cloneDish);
     else
         parentDishSideorders.appendChild(cloneDish);
+    
+
+    //overlay
+
 }
 
 function openCloseOverlay(_id) {
-
+    
 }
