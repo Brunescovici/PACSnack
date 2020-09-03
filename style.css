@@ -62,6 +62,18 @@ li {
     margin-right: 30px;
 }
 
+nav a {
+    color: black;
+}
+
+nav a:hover {
+    color: grey;
+}
+
+nav a:active {
+    color: #afafaf;
+}
+
 /* working on main */
 
 main {
@@ -76,7 +88,7 @@ main {
     margin-right: 10px;
     margin-bottom: 50px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     column-gap: 30px;
     row-gap: 20px;
 }
@@ -85,22 +97,25 @@ main {
     grid-column: 1/-1;
 }
 
-#pic {
+.pic {
     margin-top: 50px;
     object-fit: cover;
     height: 200px;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     transition-duration: all 0.4s;
+    border-radius: 2%;
 }
 
 /* article design */
 
 section>h1 {
     font-family: 'Oxygen Bold';
+    font-size: 24pt;
 }
 
 section>h1::first-letter {
-    font-size:40px;
+    font-size: 32pt;
 }
 
 article {
@@ -110,7 +125,62 @@ article {
 }
 
 article>h1 {
-    margin-top: 40px;
+    margin: 40px 20px 0 20px;
+    font-size: 16pt;
+}
+
+.shortDesc {
+    margin: 20px 20px;
+    font-family: 'Oxygen Light';
+    height: 20px;
+}
+
+.priceCont {
+    display: flex;
+    margin: 0 20px;
+    font-family: 'Oxygen Bold';
+    font-size: 28pt;
+}
+
+.newPrice {
+    color: red;
+    margin-left: 20px;
+}
+
+.buyBtn {
+    position: relative;
+    font-size: 24pt;
+    width: 150px;
+    font-family: 'Oxygen Bold';
+    background-color: #F4F4FC;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+.buyBtn:hover {
+    background-color: #adadad;
+}
+
+.buyBtn:active {
+    background-color: #5f5f5f;
+    color: white;
+}
+
+/* overlay */
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
 }
 
 /* working on footer */
