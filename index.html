@@ -35,17 +35,31 @@
                 <h1 id="sideordersHeader">Sideorders</h1>
             </section>
         </main>
-        <div id="overlay"></div>
+        <template id="olTempl">
+        <div id="overlay" class="overlay">
+            <article class="olArticle">
+                <div id="" class="closeBtn" onclick="openCloseOverlay(id)">X</div>
+                <img class="olPic" src="" alt="">
+                <h1 class="olName"></h1>
+                <p class="longDesc"></p>
+                <div class="priceCont">
+                    <p class="price"></p>
+                    <p class="newPrice"></p>
+                </div>
+                <div class="olBtn">BUY</div>
+            </article>
+        </div>
+        </template>
         <template id="dish">
-            <article>
-                <img class="pic" src="" alt=""></img>
+            <article class="dishArt">
+                <img id="" class="pic" src="" alt="" onclick="openCloseOverlay(id)"></img>
                 <h1 class="name"></h1>
                 <p class="shortDesc"></p>
                 <div class="priceCont">
                     <p class="price"></p>
                     <p class="newPrice"></p>
                 </div>
-                <div class="buyBtn">BUY</div>
+                <div class="Btn">BUY</div>
                 <p id="soldOutText">Sold out</p>
             </article>
         </template>
