@@ -4,7 +4,7 @@ fetch("http://kea-alt-del.dk/t5/api/productlist")
     .then(res => res.json())
     .then(data => fml(data));
 
-function fml(dishes) {
+function fml(dishes) { // call a foreach function for each fetched element
     dishes.forEach(addDish);
     console.log(dishes.id);
 }
@@ -20,13 +20,8 @@ let ol = 0;
 
 function addDish(dish) {  // adds the dishes (dish)
     const myTemplate = document.querySelector("#dish").content;
-    const artTemplate = document.querySelector("#olTempl").content;
     const cloneDish = myTemplate.cloneNode(true);
-    const cloneArt = artTemplate.cloneNode(true);
     cloneDish.querySelector(".pic").id=dish.id;
-    cloneArt.querySelector("#overlay").id += dish.id;
-    cloneArt.querySelector(".olPic").src = base + "medium/" + dish.image + "-md.jpg";
-    cloneArt.querySelector(".closeBtn").id = dish.id;
     cloneDish.querySelector(".name").textContent = dish.name;
     cloneDish.querySelector(".pic").src = base + "small/" + dish.image + "-sm.jpg";
     cloneDish.querySelector(".price").textContent = dish.price + ",- kr";
@@ -43,7 +38,8 @@ function addDish(dish) {  // adds the dishes (dish)
     {
         cloneDish.querySelector(".price").style.textDecoration = "line-through";
         cloneDish.querySelector(".price").style.color = "rgba(0, 0, 0, 0.5)";
-        cloneDish.querySelector(".newPrice").textContent = dish.price - (dish.price * dish.discount / 100) + ",- kr";
+        cloneDish.querySelector(".newPrice").textContent = dish.price - (dish.price * dish.discount / 100) + " kr";
+        cloneDish.querySelector(".newPrice").textContent = cloneDish.querySelector(".newPrice").textContent.replace(".", ",");
     }
     else {
         cloneDish.querySelector(".newPrice").style.display = "none";
@@ -54,7 +50,6 @@ function addDish(dish) {  // adds the dishes (dish)
     const parentDishDessert = document.querySelector("section#dessert");
     const parentDishDrinks = document.querySelector("section#drinks");
     const parentDishSideorders = document.querySelector("section#sideorders");
-    const parentOverlay = document.querySelector("body");
     if(dish.category == "starter")
         parentDishStarter.appendChild(cloneDish);
     else if(dish.category == "main")
@@ -68,7 +63,6 @@ function addDish(dish) {  // adds the dishes (dish)
     
 
     //overlay
-    parentOverlay.appendChild(cloneArt);
 }
 
 
@@ -76,12 +70,20 @@ function openCloseOverlay(_id) {
     console.log(_id);
     
     if(!ol) {
-        document.getElementById("overlay" + _id).style.display = "block";
+        document.querySelector(".overlay").style.display = "block";
         ol++;
+        fetch("https://kea-alt-del.dk/t5/api/product?id=" + _id)
+            .then(res => res.json())
+            .then(data => fml2(data))
+        function fml2(selDish) {
+            document.querySelector(".olPic").src = base + "medium/" + selDish.image + "-md.jpg";
+            console.log(_id);
+        }
     }
     else {
-        document.getElementById("overlay" + _id).style.display = "none";
+        document.querySelector(".overlay").style.display = "none";
         ol--;
+        document.querySelector(".olPic").src = "";
     }
 }
 
