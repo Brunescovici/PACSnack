@@ -37,15 +37,38 @@
         </main>
         <div class="overlay">
             <article class="olArticle">
-                <div id="" class="closeBtn" onclick="openCloseOverlay()">X</div>
+                <div class="closeBtn" onclick="openCloseOverlay()">X</div>
                 <img class="olPic" src="" alt="">
-                <h1 class="olName"></h1>
-                <p class="longDesc"></p>
-                <div class="priceCont">
-                    <p class="price"></p>
-                    <p class="newPrice"></p>
+                <div id="prodDescCont">
+                    <h1 class="olName"></h1>
+                    <p class="longDesc"></p>
                 </div>
-                <div class="olBtn">BUY</div>
+                <div id="alcAndAllCont">
+                    <ul id="allergens">
+                        <h2>Allergens</p>
+                    </ul>
+                    <div class="filters" id="alcohol">
+                        <h2>Alcohol</h2>
+                        <p></p>
+                    </div>
+                    <div class="filters" id="vegetarian">
+                        <h2>Vegetarian</h2>
+                        <p></p>
+                    </div>
+                    <div class="filters" id="region">
+                        <h2>Region</h2>
+                        <p></p>
+                    </div>
+                    <div class="filters" id="stars">
+                        <h2>Stars</h2>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="priceContOl">
+                    <p class="priceOl"></p>
+                    <p class="newPriceOl"></p>
+                </div>
+                <div class="olBtn" id="olBtn">BUY</div>
             </article>
         </div>
         <template id="dish">
@@ -61,7 +84,6 @@
                 <p id="soldOutText">Sold out</p>
             </article>
         </template>
-        <footer></footer>
     </body>
 </html>
 <script src="script.js"></script>
